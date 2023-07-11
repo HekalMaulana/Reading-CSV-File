@@ -13,6 +13,19 @@
 #     print(temperatures)
 
 import pandas
+# Read CSV file
 data = pandas.read_csv("weather_data.csv")
-temperatures = data["temp"]
-print(temperatures)
+temperatures = data["temp"].tolist()
+
+# Get average data
+temp_average = sum(temperatures) / len(temperatures)
+print(f"{temp_average:.4f}")
+print(data.temp.mean())
+
+# Get maximum data
+max_data = data["temp"].max()
+
+# Get data in row
+print(data[data.temp == data.temp.max()])
+
+
