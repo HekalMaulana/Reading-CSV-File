@@ -14,7 +14,7 @@
 
 import pandas
 # Read CSV file
-data = pandas.read_csv("weather_data.csv")
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 # temperatures = data["temp"].tolist()
 
 # Get average data
@@ -42,3 +42,15 @@ data = pandas.read_csv("weather_data.csv")
 #
 # data_student = pandas.DataFrame(data_dict)
 # print(data_student)
+
+fur_color_grey = (data['Primary Fur Color'] == 'Gray').sum()
+fur_color_red = (data['Primary Fur Color'] == 'Cinnamon').sum()
+fur_color_black = (data['Primary Fur Color'] == 'Black').sum()
+
+squirrel_count = {
+    "Fur Color": ["Grey", "Red", "Black"],
+    "Count": [fur_color_grey, fur_color_red, fur_color_black],
+}
+
+squirrel_data = pandas.DataFrame(squirrel_count)
+squirrel_data.to_csv("squirrel_count.csv")
